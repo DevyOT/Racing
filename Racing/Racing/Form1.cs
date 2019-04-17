@@ -55,5 +55,11 @@ namespace Racing
         {
             /* инициализация новой гонки */
         }
+
+        private void speedLabel_Click(object sender, EventArgs e)
+        {
+            CarObj c = new CarObj(0,0);
+            speedLabel.Text = c.speedCarObj.ToString();
+        }
     }
 }

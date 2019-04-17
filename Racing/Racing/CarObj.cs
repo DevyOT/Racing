@@ -12,11 +12,12 @@ namespace Racing
         /// <summary>
         /// Представляет из себя машину с водителем, у которой есть координаты
         /// </summary>
-        Random random; 
         public double speedCarObj;
-        double x, y = 0;
         public Car car;
-        Driver driver;
+        public Driver driver;
+
+        double x, y = 0;
+        Random random;
 
         public CarObj(double x, double y)
         {
