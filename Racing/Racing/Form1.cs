@@ -12,10 +12,16 @@ namespace Racing
 {
     public partial class Form1 : Form
     {
+        CarObj c1 = new CarObj(0, 0);
+        CarObj c2 = new CarObj(0, 0);
+        CarObj c3 = new CarObj(0, 0);
+
         public Form1()
         {
             InitializeComponent();
-
+            speedPl1Label.Text = "0 км/ч";
+            speedPl2Label.Text = "0 км/ч";
+            speedPl3Label.Text = "0 км/ч";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,12 +60,24 @@ namespace Racing
         private void CreateNewRace()
         {
             /* инициализация новой гонки */
+            
+            speedPl1Label.Text = c1.speedCarObj.ToString() + " км/ч";
+            speedPl2Label.Text = c2.speedCarObj.ToString() + " км/ч";
+            speedPl3Label.Text = c3.speedCarObj.ToString() + " км/ч";
+        }
+        private void speedPl2Label_Click(object sender, EventArgs e)
+        {
+           
         }
 
-        private void speedLabel_Click(object sender, EventArgs e)
+        private void speedPl1Label_Click(object sender, EventArgs e)
         {
-            CarObj c = new CarObj(0,0);
-            speedLabel.Text = c.speedCarObj.ToString();
+            
+        }
+
+        private void speedPl3Label_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
