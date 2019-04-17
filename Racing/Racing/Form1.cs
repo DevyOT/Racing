@@ -12,9 +12,7 @@ namespace Racing
 {
     public partial class Form1 : Form
     {
-        CarObj c1 = new CarObj(0, 0);
-        CarObj c2 = new CarObj(0, 0);
-        CarObj c3 = new CarObj(0, 0);
+        GameField GF = new GameField();
 
         public Form1()
         {
@@ -22,6 +20,11 @@ namespace Racing
             speedPl1Label.Text = "0 км/ч";
             speedPl2Label.Text = "0 км/ч";
             speedPl3Label.Text = "0 км/ч";
+            labelStat1.Text = GF.carObjList.ElementAt(1).driver.GetDriverInfo();
+            labelstat2.Text = GF.carObjList[1].driver.GetDriverInfo();
+            labelstat3.Text = GF.carObjList[2].driver.GetDriverInfo();
+            labelMoney.Text = "0 $";
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,9 +64,9 @@ namespace Racing
         {
             /* инициализация новой гонки */
             
-            speedPl1Label.Text = c1.speedCarObj.ToString() + " км/ч";
-            speedPl2Label.Text = c2.speedCarObj.ToString() + " км/ч";
-            speedPl3Label.Text = c3.speedCarObj.ToString() + " км/ч";
+            speedPl1Label.Text = GF.carObjList[0].speedCarObj.ToString() + " км/ч";
+            speedPl2Label.Text = GF.carObjList[1].ToString() + " км/ч";
+            speedPl3Label.Text = GF.carObjList[2].ToString() + " км/ч";
         }
         private void speedPl2Label_Click(object sender, EventArgs e)
         {

@@ -12,6 +12,7 @@ namespace Racing
         public GameField()
         {
             /* initialization */
+            GetCarObjs();
         }
         private void GetCarObjs()
         {
