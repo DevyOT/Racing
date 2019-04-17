@@ -14,14 +14,28 @@ namespace Racing
         /// модель,
         /// скорость. 
         /// </summary>
+        string model = "";
+        int tires = 2;
+        public double Speed;
 
         public Car(string model, int tires)
         {
-           /* initialization */
+            /* initialization */
+            this.model = model;
+            this.tires = tires;
+            this.Speed = CalcSpeed(); 
         }
-        public void CalcSpeed()
+        private double CalcSpeed()
         {
-            /* выичсление скорости машины */
+            /* вычисление скорости машины */
+            switch (model)
+            {
+                case "VAZ": return 0.2 + tires;
+                case "nisan": return 0.4 + tires;
+                case "toyota": return 0.8 + tires;
+                case "volga": return 0.3 + tires;
+            }
+            return 0.1;
         }
     }
 }
