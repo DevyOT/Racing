@@ -241,7 +241,7 @@
             // 
             this.labelMoney.AutoSize = true;
             this.labelMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMoney.Location = new System.Drawing.Point(587, 35);
+            this.labelMoney.Location = new System.Drawing.Point(538, 35);
             this.labelMoney.Name = "labelMoney";
             this.labelMoney.Size = new System.Drawing.Size(41, 13);
             this.labelMoney.TabIndex = 5;
@@ -251,11 +251,11 @@
             // 
             this.Money.AutoSize = true;
             this.Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Money.Location = new System.Drawing.Point(539, 35);
+            this.Money.Location = new System.Drawing.Point(484, 35);
             this.Money.Name = "Money";
-            this.Money.Size = new System.Drawing.Size(48, 13);
+            this.Money.Size = new System.Drawing.Size(55, 13);
             this.Money.TabIndex = 1;
-            this.Money.Text = "Money:";
+            this.Money.Text = "Деньги:";
             // 
             // labelName
             // 
