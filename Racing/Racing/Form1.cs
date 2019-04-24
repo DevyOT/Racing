@@ -14,14 +14,16 @@ namespace Racing
     {
         GameField GF;
         List<CarObj> listCarObj;
+        Player player;
         public Form1()
         {
+            player = new Player(1000, 0, "Player");
             InitializeComponent();
             CreateNewRace();
+            labelName.Text = "Имя: " + player.name;
             speedPl1Label.Text = "0 км/ч";
             speedPl2Label.Text = "0 км/ч";
             speedPl3Label.Text = "0 км/ч";
-            labelMoney.Text = "0 $";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,17 +62,25 @@ namespace Racing
         private void CreateNewRace()
         {
             /* инициализация новой гонки */
+           
             GF = new GameField();
             listCarObj = GF.GetCarObjs();
+
             speedPl1Label.Text = listCarObj[0].speedCarObj.ToString() + " км/ч";
             speedPl2Label.Text = listCarObj[1].speedCarObj.ToString() + " км/ч";
             speedPl3Label.Text = listCarObj[2].speedCarObj.ToString() + " км/ч";
+
             labelStat1.Text = listCarObj[0].driver.GetDriverInfo();
             labelstat2.Text = listCarObj[1].driver.GetDriverInfo();
             labelstat3.Text = listCarObj[2].driver.GetDriverInfo();
+
             Player1.Text = listCarObj[0].driver.name +" - "+ listCarObj[0].car.model;
             Player2.Text = listCarObj[1].driver.name + " - " + listCarObj[1].car.model;
             Player3.Text = listCarObj[2].driver.name + " - " + listCarObj[2].car.model;
+            
+            labelRating.Text = "Рейтинг: " + player.rating.ToString();
+            labelMoney.Text = player.money.ToString() + " $";
+                
         }
         private void speedPl2Label_Click(object sender, EventArgs e)
         {
