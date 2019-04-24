@@ -22,7 +22,7 @@ namespace Racing
 
         public double DriverCoef;
 
-        int exp = 0;
+        double exp = 0;
         int win = 0;
         int lose = 0;
        
@@ -38,6 +38,7 @@ namespace Racing
             this.isDrunk = isDrunk;
             this.driverLicence = driverLicence;
             this.DriverCoef = CalcCoef();
+            
         }
 
         private double CalcCoef()
@@ -45,14 +46,15 @@ namespace Racing
             /* возвращает коэфициент водителя */
             double driverLicenceCoef = driverLicence == true ? 0.5 : 0.1;
             double drunkPromili = isDrunk == true ? 0.5 : 0.1;
-
+            Random r = new Random();
+            exp = r.Next(0,20);
             /* возвращает коэфициент водителя */
             switch (name)
             {
-                case "Alex": return 0.2 + driverLicenceCoef + drunkPromili;
-                case "Ivan": return 0.3 + driverLicenceCoef + drunkPromili;
-                case "Igor": return 0.4 + driverLicenceCoef + drunkPromili;
-                case "Petr": return 0.5 + driverLicenceCoef + drunkPromili;
+                case "Alex": return 0.2 + driverLicenceCoef + drunkPromili + exp;
+                case "Ivan": return 0.3 + driverLicenceCoef + drunkPromili + exp;
+                case "Igor": return 0.4 + driverLicenceCoef + drunkPromili + exp;
+                case "Petr": return 0.5 + driverLicenceCoef + drunkPromili + exp;
                 default: return 0.1;
             }
         }

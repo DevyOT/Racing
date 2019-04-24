@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.GameField = new System.Windows.Forms.GroupBox();
+            this.speedPl3Label = new System.Windows.Forms.Label();
+            this.speedPl1Label = new System.Windows.Forms.Label();
+            this.speedPl2Label = new System.Windows.Forms.Label();
             this.BetField = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
             this.Player1 = new System.Windows.Forms.Label();
-            this.labelMoney = new System.Windows.Forms.Label();
             this.btnBet = new System.Windows.Forms.Button();
             this.labelstat3 = new System.Windows.Forms.Label();
             this.labelstat2 = new System.Windows.Forms.Label();
@@ -39,25 +43,58 @@
             this.tbPlayer3 = new System.Windows.Forms.TextBox();
             this.tbPlayer2 = new System.Windows.Forms.TextBox();
             this.tbPlayer1 = new System.Windows.Forms.TextBox();
-            this.Money = new System.Windows.Forms.Label();
             this.Player3 = new System.Windows.Forms.Label();
             this.Player2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelMoney = new System.Windows.Forms.Label();
+            this.Money = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelRating = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.GameField.SuspendLayout();
             this.BetField.SuspendLayout();
             this.SuspendLayout();
             // 
             // GameField
             // 
+            this.GameField.Controls.Add(this.speedPl3Label);
+            this.GameField.Controls.Add(this.speedPl1Label);
+            this.GameField.Controls.Add(this.speedPl2Label);
             this.GameField.Location = new System.Drawing.Point(10, 69);
             this.GameField.Name = "GameField";
             this.GameField.Size = new System.Drawing.Size(612, 169);
             this.GameField.TabIndex = 0;
             this.GameField.TabStop = false;
             this.GameField.Enter += new System.EventHandler(this.GameField_Enter);
+            // 
+            // speedPl3Label
+            // 
+            this.speedPl3Label.AutoSize = true;
+            this.speedPl3Label.Location = new System.Drawing.Point(13, 126);
+            this.speedPl3Label.Name = "speedPl3Label";
+            this.speedPl3Label.Size = new System.Drawing.Size(31, 13);
+            this.speedPl3Label.TabIndex = 12;
+            this.speedPl3Label.Text = "км/ч";
+            this.speedPl3Label.Click += new System.EventHandler(this.speedPl3Label_Click);
+            // 
+            // speedPl1Label
+            // 
+            this.speedPl1Label.AutoSize = true;
+            this.speedPl1Label.Location = new System.Drawing.Point(13, 32);
+            this.speedPl1Label.Name = "speedPl1Label";
+            this.speedPl1Label.Size = new System.Drawing.Size(31, 13);
+            this.speedPl1Label.TabIndex = 11;
+            this.speedPl1Label.Text = "км/ч";
+            this.speedPl1Label.Click += new System.EventHandler(this.speedPl1Label_Click);
+            // 
+            // speedPl2Label
+            // 
+            this.speedPl2Label.AutoSize = true;
+            this.speedPl2Label.Location = new System.Drawing.Point(13, 81);
+            this.speedPl2Label.Name = "speedPl2Label";
+            this.speedPl2Label.Size = new System.Drawing.Size(31, 13);
+            this.speedPl2Label.TabIndex = 10;
+            this.speedPl2Label.Text = "км/ч";
+            this.speedPl2Label.Click += new System.EventHandler(this.speedPl2Label_Click);
             // 
             // BetField
             // 
@@ -80,6 +117,25 @@
             this.BetField.TabIndex = 1;
             this.BetField.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "label2";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(342, 261);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(128, 23);
+            this.btnStart.TabIndex = 7;
+            this.btnStart.Text = "Новая гонка";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // Player1
             // 
             this.Player1.AutoSize = true;
@@ -89,16 +145,6 @@
             this.Player1.Size = new System.Drawing.Size(52, 20);
             this.Player1.TabIndex = 6;
             this.Player1.Text = "Player";
-            // 
-            // labelMoney
-            // 
-            this.labelMoney.AutoSize = true;
-            this.labelMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMoney.Location = new System.Drawing.Point(587, 35);
-            this.labelMoney.Name = "labelMoney";
-            this.labelMoney.Size = new System.Drawing.Size(41, 13);
-            this.labelMoney.TabIndex = 5;
-            this.labelMoney.Text = "label2";
             // 
             // btnBet
             // 
@@ -162,16 +208,6 @@
             this.tbPlayer1.TabIndex = 2;
             this.tbPlayer1.TextChanged += new System.EventHandler(this.tbPlayer1_TextChanged);
             // 
-            // Money
-            // 
-            this.Money.AutoSize = true;
-            this.Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Money.Location = new System.Drawing.Point(539, 35);
-            this.Money.Name = "Money";
-            this.Money.Size = new System.Drawing.Size(48, 13);
-            this.Money.TabIndex = 1;
-            this.Money.Text = "Money:";
-            // 
             // Player3
             // 
             this.Player3.AutoSize = true;
@@ -201,6 +237,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "BET:";
             // 
+            // labelMoney
+            // 
+            this.labelMoney.AutoSize = true;
+            this.labelMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMoney.Location = new System.Drawing.Point(587, 35);
+            this.labelMoney.Name = "labelMoney";
+            this.labelMoney.Size = new System.Drawing.Size(41, 13);
+            this.labelMoney.TabIndex = 5;
+            this.labelMoney.Text = "label2";
+            // 
+            // Money
+            // 
+            this.Money.AutoSize = true;
+            this.Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Money.Location = new System.Drawing.Point(539, 35);
+            this.Money.Name = "Money";
+            this.Money.Size = new System.Drawing.Size(48, 13);
+            this.Money.TabIndex = 1;
+            this.Money.Text = "Money:";
+            // 
             // labelName
             // 
             this.labelName.AutoSize = true;
@@ -222,25 +278,6 @@
             this.labelRating.TabIndex = 8;
             this.labelRating.Text = "label3";
             // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(342, 261);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(128, 23);
-            this.btnStart.TabIndex = 7;
-            this.btnStart.Text = "Новая гонка";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +292,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.GameField.ResumeLayout(false);
+            this.GameField.PerformLayout();
             this.BetField.ResumeLayout(false);
             this.BetField.PerformLayout();
             this.ResumeLayout(false);
@@ -283,6 +322,9 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label speedPl3Label;
+        private System.Windows.Forms.Label speedPl1Label;
+        private System.Windows.Forms.Label speedPl2Label;
     }
 }
 
