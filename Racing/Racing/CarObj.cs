@@ -17,19 +17,24 @@ namespace Racing
         public Driver driver;
 
         double x, y = 0;
-        Random random;
+        static Random seed = new Random();
+        static Random random;
+       // Random random;
 
         public CarObj(double x, double y)
         {
             /* initialization */
             this.x = x;
             this.y = y;
-            random = new Random();
+           // random = new Random();
+            if (random == null)
+                random = new Random(seed.Next());
             // создал обьект машинки со случайными значениями
             car = new Car(RandomModel(), random.Next(0, 3));
             // создал обьект водителя со случайными значениями
             driver = new Driver(RandomName(), (random.Next(0, 1) == 0 ? true : false), (random.Next(2, 3) == 2 ? true : false));
             speedCarObj = CalcFinalSpeed();
+           
         }
         public void DrawCarObj()
         {
