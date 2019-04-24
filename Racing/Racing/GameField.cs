@@ -8,22 +8,23 @@ namespace Racing
 {
     class GameField
     {
-        public List<CarObj> carObjList =new List<CarObj>();
+        private List<CarObj> carObjList;
+        
         public GameField()
         {
             /* initialization */
-            GetCarObjs();
-        }
-        private void GetCarObjs()
-        {
-            /* вернуть массив машин участвующих в гонке */
+            carObjList = new List<CarObj>();
             CarObj objPlayer1 = new CarObj(0, 0);
             CarObj objPlayer2 = new CarObj(0, 0);
             CarObj objPlayer3 = new CarObj(0, 0);
             carObjList.Add(objPlayer1);
             carObjList.Add(objPlayer2);
             carObjList.Add(objPlayer3);
-            
+        }
+        public List<CarObj> GetCarObjs()
+        {
+            /* вернуть массив машин участвующих в гонке */
+            return carObjList;
         }
     }
 }
