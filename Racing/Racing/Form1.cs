@@ -98,11 +98,30 @@ namespace Racing
                 player.money = player.money - Convert.ToInt32(tbPlayer1.Text) - Convert.ToInt32(tbPlayer2.Text) - Convert.ToInt32(tbPlayer3.Text);
                 if (buttonClick)
                 {
-                    int victory = 0;
-                    Bet bet1 = new Bet(Convert.ToInt32(tbPlayer1.Text), listCarObj[0].speedCarObj, victory);
-                    Bet bet2 = new Bet(Convert.ToInt32(tbPlayer2.Text), listCarObj[1].speedCarObj, victory);
-                    Bet bet3 = new Bet(Convert.ToInt32(tbPlayer3.Text), listCarObj[2].speedCarObj, victory);
+                    int victory1 = 0;
+                    int victory2 = 0;
+                    int victory3 = 0;
+                    if (listCarObj[0].speedCarObj > listCarObj[1].speedCarObj && listCarObj[0].speedCarObj > listCarObj[2].speedCarObj)
+                    {
+                        victory1 = 1;
+                    }
+                    else if (listCarObj[1].speedCarObj > listCarObj[0].speedCarObj && listCarObj[1].speedCarObj > listCarObj[2].speedCarObj)
+                    {
+                        victory2 = 1;
+                    }
+                    else if (listCarObj[2].speedCarObj > listCarObj[0].speedCarObj && listCarObj[2].speedCarObj > listCarObj[1].speedCarObj)
+                    {
+                        victory3 = 1;
+                    }
+                    else
+                    {
+                        victory1 = victory2 = victory3 = 0;
+                    }
+                    Bet bet1 = new Bet(Convert.ToInt32(tbPlayer1.Text), listCarObj[0].speedCarObj, victory1);
+                    Bet bet2 = new Bet(Convert.ToInt32(tbPlayer2.Text), listCarObj[1].speedCarObj, victory2);
+                    Bet bet3 = new Bet(Convert.ToInt32(tbPlayer3.Text), listCarObj[2].speedCarObj, victory3);
                     player.money += Convert.ToInt32(bet1.PaymentRatiio())+Convert.ToInt32(bet2.PaymentRatiio())+Convert.ToInt32(bet3.PaymentRatiio());
+                    
                 }
 
                 labelRating.Text = "Рейтинг: " + player.rating.ToString();
