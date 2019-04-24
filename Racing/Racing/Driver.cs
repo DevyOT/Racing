@@ -29,7 +29,7 @@ namespace Racing
         bool isDrunk = false;
         bool driverLicence = true;
 
-        string name;
+        public string name;
 
         public Driver(string name, bool isDrunk, bool driverLicence)
         {
