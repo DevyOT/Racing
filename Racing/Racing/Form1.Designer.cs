@@ -190,6 +190,7 @@
             this.tbPlayer3.Name = "tbPlayer3";
             this.tbPlayer3.Size = new System.Drawing.Size(233, 26);
             this.tbPlayer3.TabIndex = 2;
+            this.tbPlayer3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPlayer3_KeyPress);
             // 
             // tbPlayer2
             // 
@@ -198,6 +199,7 @@
             this.tbPlayer2.Name = "tbPlayer2";
             this.tbPlayer2.Size = new System.Drawing.Size(233, 26);
             this.tbPlayer2.TabIndex = 2;
+            this.tbPlayer2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPlayer2_KeyPress);
             // 
             // tbPlayer1
             // 
@@ -207,6 +209,7 @@
             this.tbPlayer1.Size = new System.Drawing.Size(233, 26);
             this.tbPlayer1.TabIndex = 2;
             this.tbPlayer1.TextChanged += new System.EventHandler(this.tbPlayer1_TextChanged);
+            this.tbPlayer1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPlayer1_KeyPress);
             // 
             // Player3
             // 

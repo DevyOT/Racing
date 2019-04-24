@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bet.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="CarObj.cs" />
     <Compile Include="Driver.cs" />
