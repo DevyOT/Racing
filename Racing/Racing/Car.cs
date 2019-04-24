@@ -14,7 +14,7 @@ namespace Racing
         /// модель,
         /// скорость. 
         /// </summary>
-        string model = "";
+        public string model = "";
         int tires = 2;
         public double Speed;
 

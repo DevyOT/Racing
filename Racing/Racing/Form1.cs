@@ -68,6 +68,9 @@ namespace Racing
             labelStat1.Text = listCarObj[0].driver.GetDriverInfo();
             labelstat2.Text = listCarObj[1].driver.GetDriverInfo();
             labelstat3.Text = listCarObj[2].driver.GetDriverInfo();
+            Player1.Text = listCarObj[0].driver.name +" - "+ listCarObj[0].car.model;
+            Player2.Text = listCarObj[1].driver.name + " - " + listCarObj[1].car.model;
+            Player3.Text = listCarObj[2].driver.name + " - " + listCarObj[2].car.model;
         }
         private void speedPl2Label_Click(object sender, EventArgs e)
         {

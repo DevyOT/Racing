@@ -140,7 +140,7 @@
             // 
             this.Player1.AutoSize = true;
             this.Player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player1.Location = new System.Drawing.Point(161, 68);
+            this.Player1.Location = new System.Drawing.Point(134, 68);
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(52, 20);
             this.Player1.TabIndex = 6;
@@ -212,7 +212,7 @@
             // 
             this.Player3.AutoSize = true;
             this.Player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player3.Location = new System.Drawing.Point(161, 192);
+            this.Player3.Location = new System.Drawing.Point(134, 195);
             this.Player3.Name = "Player3";
             this.Player3.Size = new System.Drawing.Size(56, 20);
             this.Player3.TabIndex = 1;
@@ -222,7 +222,7 @@
             // 
             this.Player2.AutoSize = true;
             this.Player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Player2.Location = new System.Drawing.Point(161, 130);
+            this.Player2.Location = new System.Drawing.Point(134, 129);
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(56, 20);
             this.Player2.TabIndex = 1;
