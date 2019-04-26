@@ -10,27 +10,45 @@ namespace Racing
 {
     class Bet
     {
-        int betAmount;
-        double ratio;
-        int victory;
+        int[] betAmount;
+        List<CarObj> listCarObj;
+        public double winMoney;
 
-        public Bet(int betAmount, double ratio, int victory)
+        public Bet(int[] betAmount, List<CarObj> listCarObj)
         {
             this.betAmount = betAmount;
-            this.ratio = ratio;
-            this.victory = victory;
+            this.listCarObj = listCarObj;
         }
-        public double PaymentRatiio()
+        public List<CarObj> GetUpdateCarObj()
         {
-            if(betAmount == 0)
+            if (listCarObj[0].speedCarObj > listCarObj[1].speedCarObj && listCarObj[0].speedCarObj > listCarObj[2].speedCarObj)
             {
-                return 0;
+                listCarObj[0].driver.win += 1;
+                winMoney += betAmount[0] * listCarObj[0].driver.driverRatio;
             }
-            if(victory == 0)
+            else
             {
-                return 0;
+                listCarObj[0].driver.lose += 1;
             }
-            return betAmount + victory + ratio;
+            if (listCarObj[1].speedCarObj > listCarObj[0].speedCarObj && listCarObj[1].speedCarObj > listCarObj[2].speedCarObj)
+            {
+                listCarObj[1].driver.win += 1;
+                winMoney += betAmount[1] * 2;
+            }
+            else
+            {
+                listCarObj[1].driver.lose += 1;
+            }
+            if (listCarObj[2].speedCarObj > listCarObj[0].speedCarObj && listCarObj[2].speedCarObj > listCarObj[1].speedCarObj)
+            {
+                listCarObj[2].driver.win += 1;
+                winMoney += betAmount[2] * 2;
+            }
+            else
+            {
+                listCarObj[2].driver.lose += 1;
+            }
+            return listCarObj;
         }
     }
 }

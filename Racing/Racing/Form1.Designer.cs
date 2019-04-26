@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.Player1 = new System.Windows.Forms.Label();
-            this.btnBet = new System.Windows.Forms.Button();
             this.labelstat3 = new System.Windows.Forms.Label();
             this.labelstat2 = new System.Windows.Forms.Label();
             this.labelStat1 = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@
             this.BetField.Controls.Add(this.label2);
             this.BetField.Controls.Add(this.btnStart);
             this.BetField.Controls.Add(this.Player1);
-            this.BetField.Controls.Add(this.btnBet);
             this.BetField.Controls.Add(this.labelstat3);
             this.BetField.Controls.Add(this.labelstat2);
             this.BetField.Controls.Add(this.labelStat1);
@@ -128,11 +126,11 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(342, 261);
+            this.btnStart.Location = new System.Drawing.Point(271, 261);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(128, 23);
             this.btnStart.TabIndex = 7;
-            this.btnStart.Text = "Новая гонка";
+            this.btnStart.Text = "Селать ставку";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -145,16 +143,6 @@
             this.Player1.Size = new System.Drawing.Size(52, 20);
             this.Player1.TabIndex = 6;
             this.Player1.Text = "Player";
-            // 
-            // btnBet
-            // 
-            this.btnBet.Location = new System.Drawing.Point(237, 261);
-            this.btnBet.Name = "btnBet";
-            this.btnBet.Size = new System.Drawing.Size(75, 23);
-            this.btnBet.TabIndex = 4;
-            this.btnBet.Text = "Place Bet";
-            this.btnBet.UseVisualStyleBackColor = true;
-            this.btnBet.Click += new System.EventHandler(this.btnBet_Click);
             // 
             // labelstat3
             // 
@@ -316,7 +304,6 @@
         private System.Windows.Forms.Label Player2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelMoney;
-        private System.Windows.Forms.Button btnBet;
         private System.Windows.Forms.Label labelstat3;
         private System.Windows.Forms.Label labelstat2;
         private System.Windows.Forms.Label labelStat1;

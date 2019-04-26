@@ -23,9 +23,10 @@ namespace Racing
         public double DriverCoef;
 
         double exp = 0;
-        int win = 0;
-        int lose = 0;
-       
+        public int win = 1;
+        public int lose = 1;
+        public double driverRatio;
+
         bool isDrunk = false;
         bool driverLicence = true;
 
@@ -38,7 +39,7 @@ namespace Racing
             this.isDrunk = isDrunk;
             this.driverLicence = driverLicence;
             this.DriverCoef = CalcCoef();
-            
+            this.driverRatio = (win - lose)/win;
         }
 
         private double CalcCoef()

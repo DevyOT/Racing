@@ -17,9 +17,10 @@ namespace Racing
         Player player;
         public Form1()
         {
+            
             player = new Player(1000, 0, "Player");
             InitializeComponent();
-            CreateNewRace(false);
+            FieldInicilization();
             labelName.Text = "Имя: " + player.name;
             speedPl1Label.Text = "0 км/ч";
             speedPl2Label.Text = "0 км/ч";
@@ -31,7 +32,7 @@ namespace Racing
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -55,16 +56,15 @@ namespace Racing
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-           CreateNewRace(true);
+           CreateNewRace();
         }
 
         private void btnBet_Click(object sender, EventArgs e)
         {
            
         }
-        private void CreateNewRace(bool buttonClick)
+        private void ZeroCheck()
         {
-            /* инициализация новой гонки */
             if (tbPlayer1.Text == "")
             {
                 tbPlayer1.Text = "0";
@@ -77,55 +77,24 @@ namespace Racing
             {
                 tbPlayer3.Text = "0";
             }
-            if ((Convert.ToInt32(tbPlayer1.Text) + Convert.ToInt32(tbPlayer2.Text) + Convert.ToInt32(tbPlayer3.Text)) <= player.money)
+        }
+
+        private void CreateNewRace()
+        {
+            /* инициализация новой гонки */
+            ZeroCheck();
+            int[] betFields = { Convert.ToInt32(tbPlayer1.Text), Convert.ToInt32(tbPlayer2.Text), Convert.ToInt32(tbPlayer3.Text) };
+            
+            if (betFields.Sum() <= player.money)
             {
-                GF = new GameField();
-                listCarObj = GF.GetCarObjs();
+                player.money -= betFields.Sum();
 
-                speedPl1Label.Text = listCarObj[0].speedCarObj.ToString() + " км/ч";
-                speedPl2Label.Text = listCarObj[1].speedCarObj.ToString() + " км/ч";
-                speedPl3Label.Text = listCarObj[2].speedCarObj.ToString() + " км/ч";
-
-                labelStat1.Text = listCarObj[0].driver.GetDriverInfo();
-                labelstat2.Text = listCarObj[1].driver.GetDriverInfo();
-                labelstat3.Text = listCarObj[2].driver.GetDriverInfo();
-
-                Player1.Text = listCarObj[0].driver.name + " - " + listCarObj[0].car.model;
-                Player2.Text = listCarObj[1].driver.name + " - " + listCarObj[1].car.model;
-                Player3.Text = listCarObj[2].driver.name + " - " + listCarObj[2].car.model;
-
-
-                player.money = player.money - Convert.ToInt32(tbPlayer1.Text) - Convert.ToInt32(tbPlayer2.Text) - Convert.ToInt32(tbPlayer3.Text);
-                if (buttonClick)
-                {
-                    int victory1 = 0;
-                    int victory2 = 0;
-                    int victory3 = 0;
-                    if (listCarObj[0].speedCarObj > listCarObj[1].speedCarObj && listCarObj[0].speedCarObj > listCarObj[2].speedCarObj)
-                    {
-                        victory1 = 1;
-                    }
-                    else if (listCarObj[1].speedCarObj > listCarObj[0].speedCarObj && listCarObj[1].speedCarObj > listCarObj[2].speedCarObj)
-                    {
-                        victory2 = 1;
-                    }
-                    else if (listCarObj[2].speedCarObj > listCarObj[0].speedCarObj && listCarObj[2].speedCarObj > listCarObj[1].speedCarObj)
-                    {
-                        victory3 = 1;
-                    }
-                    else
-                    {
-                        victory1 = victory2 = victory3 = 0;
-                    }
-                    Bet bet1 = new Bet(Convert.ToInt32(tbPlayer1.Text), listCarObj[0].speedCarObj, victory1);
-                    Bet bet2 = new Bet(Convert.ToInt32(tbPlayer2.Text), listCarObj[1].speedCarObj, victory2);
-                    Bet bet3 = new Bet(Convert.ToInt32(tbPlayer3.Text), listCarObj[2].speedCarObj, victory3);
-                    player.money += Convert.ToInt32(bet1.PaymentRatiio())+Convert.ToInt32(bet2.PaymentRatiio())+Convert.ToInt32(bet3.PaymentRatiio());
-                    
-                }
-
-                labelRating.Text = "Рейтинг: " + player.rating.ToString();
-                labelMoney.Text = player.money.ToString() + " $";
+                Bet bet = new Bet(betFields,listCarObj);
+                  
+               
+                listCarObj = bet.GetUpdateCarObj();
+                player.money += bet.winMoney;
+                FieldInicilization();
             }
             else
             {
@@ -133,6 +102,28 @@ namespace Racing
             }
 
         }
+       
+        private void FieldInicilization ()
+        {
+            GF = new GameField();
+            listCarObj = GF.GetCarObjs();
+
+            speedPl1Label.Text = listCarObj[0].speedCarObj.ToString() + " км/ч";
+            speedPl2Label.Text = listCarObj[1].speedCarObj.ToString() + " км/ч";
+            speedPl3Label.Text = listCarObj[2].speedCarObj.ToString() + " км/ч";
+
+            labelStat1.Text = listCarObj[0].driver.GetDriverInfo();
+            labelstat2.Text = listCarObj[1].driver.GetDriverInfo();
+            labelstat3.Text = listCarObj[2].driver.GetDriverInfo();
+
+            Player1.Text = listCarObj[0].driver.name + " - " + listCarObj[0].car.model;
+            Player2.Text = listCarObj[1].driver.name + " - " + listCarObj[1].car.model;
+            Player3.Text = listCarObj[2].driver.name + " - " + listCarObj[2].car.model;
+
+            labelRating.Text = "Рейтинг: " + player.rating.ToString();
+            labelMoney.Text = player.money.ToString() + " $";
+        }
+
         private void speedPl2Label_Click(object sender, EventArgs e)
         {
            
