@@ -15,11 +15,14 @@ namespace Racing
         GameField GF;
         List<CarObj> listCarObj;
         Player player;
+
         public Form1()
         {
-            
+            GF = new GameField();
+            listCarObj = GF.GetCarObjs();
             player = new Player(1000, 0, "Player");
             InitializeComponent();
+           
             FieldInicilization();
             labelName.Text = "Имя: " + player.name;
             speedPl1Label.Text = "0 км/ч";
@@ -81,8 +84,11 @@ namespace Racing
 
         private void CreateNewRace()
         {
+            GF = new GameField();
+            listCarObj = GF.GetCarObjs();
             /* инициализация новой гонки */
             ZeroCheck();
+            
             int[] betFields = { Convert.ToInt32(tbPlayer1.Text), Convert.ToInt32(tbPlayer2.Text), Convert.ToInt32(tbPlayer3.Text) };
             
             if (betFields.Sum() <= player.money)
@@ -105,8 +111,7 @@ namespace Racing
        
         private void FieldInicilization ()
         {
-            GF = new GameField();
-            listCarObj = GF.GetCarObjs();
+            
 
             speedPl1Label.Text = listCarObj[0].speedCarObj.ToString() + " км/ч";
             speedPl2Label.Text = listCarObj[1].speedCarObj.ToString() + " км/ч";
