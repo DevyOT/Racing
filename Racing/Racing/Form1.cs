@@ -15,7 +15,11 @@ namespace Racing
         GameField GF;
         List<CarObj> listCarObj;
         Player player;
-
+        Graphics gr;       //объявляем объект - графику, на которой будем рисовать
+        Pen p;             //объявляем объект - карандаш, которым будем рисовать контур
+        SolidBrush fon;    //объявляем объект - заливки, для заливки соответственно фона
+        SolidBrush fig;    //и внутренности рисуемой фигуры
+        int rad;          // переменная для хранения радиуса рисуемых кругов
         public Form1()
         {
             GF = new GameField();
@@ -32,7 +36,17 @@ namespace Racing
             tbPlayer2.Text = "0";
             tbPlayer3.Text = "0";
         }
+        //опишем функцию, которая будет рисовать круг по координатам его центра
+        void DrawCircle(int x, int y)
+        {
+            int xc, yc;
+            xc = x - rad;
+            yc = y - rad;
+            gr.FillEllipse(fig, xc, yc, rad, rad);
 
+            gr.DrawEllipse(p, xc, yc, rad, rad);
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -60,6 +74,25 @@ namespace Racing
         private void btnStart_Click(object sender, EventArgs e)
         {
            CreateNewRace();
+           gr = pictureBox1.CreateGraphics();  //инициализируем объект типа графики
+                                               // привязав  к PictureBox
+            p = new Pen(Color.Lime);           // задали цвет для карандаша 
+            fon = new SolidBrush(Color.Black); // и для заливки
+            fig = new SolidBrush(Color.Purple);
+            rad = 40;                          //задали радиус для круга
+            gr.FillRectangle(fon, 0, 0, pictureBox1.Width, pictureBox1.Height); // закрасим черным 
+                                                                                // нашу область рисования
+
+            // вызываем написанную нами функцию, для прорисовки круга
+            int x, y;
+            x = 40;
+            y = 50;
+            for (int i = 0; i < 4; i++)
+            {
+                DrawCircle(x, y);
+               // x+=10;
+            }
+            timer1.Enabled = true;
         }
 
         private void btnBet_Click(object sender, EventArgs e)
@@ -172,6 +205,24 @@ namespace Racing
             {
                 e.Handled = true;
             }
+        }
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            //сначала будем очищать область рисования цветом фона
+            gr.FillRectangle(fon, 0, 0, pictureBox1.Width, pictureBox1.Height);
+
+
+            // затем опять случайным образом выбираем координаты центров кругов
+            // и рисуем их при помощи описанной нами функции
+            int x, y;
+            x = 50;
+            y = 50;
+               for (int i = 0; i < 40; i++)
+               {
+                   gr.FillRectangle(fon, 0, 0, pictureBox1.Width, pictureBox1.Height);
+                   x +=10;
+                   DrawCircle(x, y);
+               }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.GameField = new System.Windows.Forms.GroupBox();
             this.speedPl3Label = new System.Windows.Forms.Label();
             this.speedPl1Label = new System.Windows.Forms.Label();
@@ -49,12 +50,16 @@
             this.Money = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelRating = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.GameField.SuspendLayout();
             this.BetField.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GameField
             // 
+            this.GameField.Controls.Add(this.pictureBox1);
             this.GameField.Controls.Add(this.speedPl3Label);
             this.GameField.Controls.Add(this.speedPl1Label);
             this.GameField.Controls.Add(this.speedPl2Label);
@@ -269,6 +274,19 @@
             this.labelRating.TabIndex = 8;
             this.labelRating.Text = "label3";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(50, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(455, 150);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 24;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +305,7 @@
             this.GameField.PerformLayout();
             this.BetField.ResumeLayout(false);
             this.BetField.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,6 +334,8 @@
         private System.Windows.Forms.Label speedPl3Label;
         private System.Windows.Forms.Label speedPl1Label;
         private System.Windows.Forms.Label speedPl2Label;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
